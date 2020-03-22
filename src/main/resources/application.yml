@@ -1,0 +1,10 @@
+server:
+  port: 9003
+spring:
+  application:
+    name: job-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/wd
+    password: root
+    username: root
+

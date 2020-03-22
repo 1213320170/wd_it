@@ -1,0 +1,232 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>修改基本信息</title>
+<link href="../../main.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+td img {display: block;}.title {
+	margin-top: 3px;
+	font-size: 16px;
+	font-weight: bold;
+	padding-top: 3px;
+	text-align: center;
+	vertical-align: top;
+}
+.content {
+	font-size: 14px;
+	line-height: 40px;
+	color: #333;
+	text-indent: 2em;
+	margin: 20px;
+}
+</style>
+</head>
+<body>
+<form action="../editMessage" method="post">
+  <input type="hidden" th:value="${session.cpg.cid}" name="cid"/>
+<table width="1003" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+   <td width="203" valign="top"><div id="linkDiv">
+	<br />
+	<br />
+    <div style="width:100%; height:30px; font-size:14px; font-weight: bold;"><a href="">基本信息维护</a></div>
+     <div style="height:30px; font-size:14px; margin-left:25px;"><a th:href="@{mod_password}">修改密码</a></div>
+     <div style="height:30px; font-size:14px; margin-left:25px;"><a th:href="@{add_basicInfo}">添加基本信息</a></div>
+     <div style="height:30px; font-size:14px; margin-left:25px;"><a th:href="@{mod_basicInfo}">修改信息</a></div>
+    <div style="width:100%; height:30px; font-size:14px; font-weight: bold;"><a href="">招聘管理</a></div>
+     <div style="height:30px; font-size:14px; margin-left:25px;"><a th:href="@{jobs_list}">职位列表</a></div>
+    <div style="height:30px; font-size:14px; margin-left:25px;"><a href="add_job.html">添加职位</a></div>
+    <div style="height:30px; font-size:14px; margin-left:25px;"><a href="resume_favorite.html">查看简历收藏列表</a></div>
+    <div style="width:100%; height:30px; font-size:14px; font-weight: bold;"><a href="">系统管理</a></div> 
+    <div style="height:30px; font-size:14px; margin-left:25px;"><a href="javascript:window.close()">退出</a></div>    
+    </div></td>
+    <td width="800" valign="top">
+   	 <div class="title">     
+	  	<div align="left">&nbsp;企业后台管理&#187;修改基本信息</div>
+	  	<div align="left">&nbsp;&nbsp;&nbsp;</div>
+    	</div>
+    <div class="title"></div>
+    <hr color="#999999" />
+    <TABLE cellSpacing=5 cellPadding=5 width=781 align=center border=0>
+  <TBODY>
+  <TR>
+    <TD width="761"><table width="100%">
+      <tbody>
+        <tr>
+          <td width="6%" style="WIDTH: 10%; HEIGHT: 32px; TEXT-ALIGN: right"><span 
+            class="FontRed">*</span></td>
+          <td width="11%">单位名称：</td>
+          <td width="36%">
+            <input name="caree" th:value="${session.cpg.caree}"/>
+          </td>
+          <td width="47%" class="FontGray">请输全称，与执照一致，提交后不能自行更改</td>
+        </tr>
+        <tr>
+          <td height="32"></td>
+          <td>单位性质：</td>
+          <td><select class="intxt1" size="1" name="type">
+              <option value=""
+        selected="selected">请选择单位性质</option>
+              <option value="全民" th:selected="${session.cpg.type}== 全民" >全民</option>
+              <option th:selected="${session.cpg.type}== 集体"
+        value="集体">集体</option>
+              <option value="私营" th:selected="${session.cpg.type}== 私营" >私营</option>
+              <option th:selected="${session.cpg.type}== 三资"
+        value="三资">三资</option>
+              <option value="股份制" th:selected="${session.cpg.type}== 股份制" >股份制</option>
+              <option th:selected="${session.cpg.type}== 有限责任公司"
+        value="有限责任公司">有限责任公司</option>
+              <option value="其它" th:selected="${session.cpg.type}== 其他">其它</option>
+          </select></td>
+          <td class="FontGray">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="32"></td>
+          <td>所属行业：</td>
+          <td><select class="intxt" size="1" name="trade">
+            <option 
+        selected="selected">请选择单位所属行业</option>
+            <option value="计算机、通讯业" th:selected="${session.cpg.trade}== '计算机、通讯业'">计算机、通讯业</option>
+            <option value="科研设计、科技开发" th:selected="${session.cpg.trade}== '科研设计、科技开发'" >科研设计、科技开发</option>
+            <option th:selected="${session.cpg.trade}== '生产、制造、加工业'"
+        value="生产、制造、加工业">生产、制造、加工业</option>
+            <option value="电子、电器" th:selected="${session.cpg.trade}== '电子、电器'">电子、电器</option>
+            <option value="仪器、仪表、自动化" th:selected="${session.cpg.trade}== '仪器、仪表、自动化'" >仪器、仪表、自动化</option>
+            <option th:selected="${session.cpg.trade}== '机械制造、机电设备'"
+        value="机械制造、机电设备">机械制造、机电设备</option>
+            <option th:selected="${session.cpg.trade}== '矿产、冶金、金属制品'"
+        value="矿产、冶金、金属制品" >矿产、冶金、金属制品</option>
+            <option th:selected="${session.cpg.trade}== '非金属制品业'"
+        value="非金属制品业">非金属制品业</option>
+            <option th:selected="${session.cpg.trade}== '车辆制造、部件、销售维修'"
+        value="车辆制造、部件、销售维修">车辆制造、部件、销售维修</option>
+            <option th:selected="${session.cpg.trade}== '动力、电力、能源'"
+        value="动力、电力、能源">动力、电力、能源</option>
+            <option th:selected="${session.cpg.trade}== '建筑、安装、交通工程'"
+        value="建筑、安装、交通工程">建筑、安装、交通工程</option>
+            <option th:selected="${session.cpg.trade}== '房地产、物业、园林绿化'"
+        value="房地产、物业、园林绿化" >房地产、物业、园林绿化</option>
+            <option th:selected="${session.cpg.trade}== '装修、装璜、设计'"
+        value="装修、装璜、设计">装修、装璜、设计</option>
+            <option th:selected="${session.cpg.trade}== '轻工、纺织、服装、制革'"
+        value="轻工、纺织、服装、制革">轻工、纺织、服装、制革</option>
+            <option th:selected="${session.cpg.trade}== '造纸、印刷、包装'"
+        value="造纸、印刷、包装">造纸、印刷、包装</option>
+            <option th:selected="${session.cpg.trade}== '木材家具、工艺品'"
+        value="木材家具、工艺品">木材家具、工艺品</option>
+            <option value="市政、公用事业" th:selected="${session.cpg.trade}== '市政、公用事业'" >市政、公用事业</option>
+            <option value="交通运输、物流快递" th:selected="${session.cpg.trade}== '交通运输、物流快递'">交通运输、物流快递</option>
+            <option th:selected="${session.cpg.trade}== '邮政、电信'"
+        value="邮政、电信">邮政、电信</option>
+            <option value="化学化工、生物制药" th:selected="${session.cpg.trade}== '化学化工、生物制药'" >化学化工、生物制药</option>
+            <option value="环境、环保、治污" th:selected="${session.cpg.trade}== '环境、环保、治污'">环境、环保、治污</option>
+            <option th:selected="${session.cpg.trade}== '商业、贸易'"
+        value="商业、贸易">商业、贸易</option>
+            <option th:selected="${session.cpg.trade}== '日用品、快速消费品、食品'"
+        value="日用品、快速消费品、食品">日用品、快速消费品、食品</option>
+            <option th:selected="${session.cpg.trade}== '市场、批发、零售'"
+        value="市场、批发、零售">市场、批发、零售</option>
+            <option th:selected="${session.cpg.trade}== '广告、策划、设计'"
+        value="广告、策划、设计">广告、策划、设计</option>
+            <option th:selected="${session.cpg.trade}== '新闻出版、广播影视'"
+        value="新闻出版、广播影视">新闻出版、广播影视</option>
+            <option value="文化、艺术" th:selected="${session.cpg.trade}== '文化、艺术'">文化、艺术</option>
+            <option value="咨询、事务所、中介机构" th:selected="${session.cpg.trade}== '咨询、事务所、中介机构'" >咨询、事务所、中介机构</option>
+            <option th:selected="${session.cpg.trade}== '金融、保险'"
+        value="金融、保险">金融、保险</option>
+            <option value="教育、培训" th:selected="${session.cpg.trade}== '教育、培训'">教育、培训</option>
+            <option th:selected="${session.cpg.trade}== '卫生、医疗设备'"
+        value="卫生、医疗设备" >卫生、医疗设备</option>
+            <option value="服务业" th:selected="${session.cpg.trade}== '服务业'">服务业</option>
+            <option th:selected="${session.cpg.trade}== '体育、文化、办公用品'"
+        value="体育、文化、办公用品">体育、文化、办公用品</option>
+            <option th:selected="${session.cpg.trade}== '旅游、酒店、餐饮、娱乐'"
+        value="旅游、酒店、餐饮、娱乐">旅游、酒店、餐饮、娱乐</option>
+            <option th:selected="${session.cpg.trade}== '政府部门、党政群团机构'"
+        value="政府部门、党政群团机构">政府部门、党政群团机构</option>
+            <option th:selected="${session.cpg.trade}== '协会、社团、非营利机构'"
+        value="协会、社团、非营利机构">协会、社团、非营利机构</option>
+            <option value="农林牧渔" th:selected="${session.cpg.trade}== '农林牧渔'" >农林牧渔</option>
+            <option value="综合性工商企业" th:selected="${session.cpg.trade}== '综合性工商企业'" >综合性工商企业</option>
+          </select></td>
+          <td class="FontGray">&nbsp;</td>
+        </tr>
+        <tr>
+          <td style="HEIGHT: 32px; TEXT-ALIGN: right"></td>
+          <td>电&nbsp;话：</td>
+          <td><input class="intxt1" maxlength="20" 
+      onchange="document.thist.phone0.value=document.thist.phone.value" size="24" 
+      name="phone2" th:value="${session.cpg.phone2}"/></td>
+          <td class="FontGray">电话号码格式为“区号-电话号码-分机号”</td>
+        </tr>
+        <tr>
+          <td style="HEIGHT: 32px; TEXT-ALIGN: right"></td>
+          <td>手&nbsp;机：</td>
+          <td><input class="intxt1" maxlength="20" 
+      onchange="document.thist.phone0.value=document.thist.phone.value" size="24" 
+      name="phone" th:value="${session.cpg.phone}"/></td>
+          <td class="FontGray">手机号</td>
+        </tr>
+        <tr>
+          <td style="TEXT-ALIGN: right" height="32"></td>
+          <td>传真号码：</td>
+          <td><input class="intxt1" maxlength="20" size="24" name="fax" th:value="${session.cpg.fax}"/></td>
+          <td class="FontGray">传真号码格式为“区号-传真号码-分机号”</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td height="32">联 系 人：</td>
+          <td><input class="intxt1" maxlength="20" size="24" name="fax2" th:value="${session.cpg.fax2}"/></td>
+          <td class="FontGray">必须填写</td>
+        </tr>
+        <tr>
+          <td height="32"></td>
+          <td>邮政编码：</td>
+          <td><input class="intxt1" maxlength="20" size="24" name="fax22" th:value="${session.cpg.fax22}" /></td>
+          <td class="FontGray">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="32"></td>
+          <td>通讯地址：</td>
+          <td><input class="intxt1" maxlength="20" size="24" name="fax222" th:value="${session.cpg.fax222}" /></td>
+          <td class="FontGray"></td>
+        </tr>
+        <tr>
+          <td height="32"></td>
+          <td>电子邮件：</td>
+          <td><input class="intxt" maxlength="20" size="24" name="salary" th:value="${session.cpg.salary}" /></td>
+          <td class="FontGray">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="32"></td>
+          <td>单位网址：</td>
+          <td><input class="intxt" maxlength="20" size="24" name="salary2" th:value="${session.cpg.salary2}" /></td>
+          <td class="FontGray">&nbsp;</td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td style="VERTICAL-ALIGN: top" height="32">公司简介：</td>
+          <td 
+            colspan="2"><textarea name="other" th:utext="${session.cpg.other}" rows="12" cols="75"></textarea>
+              <br />
+            <span 
+            class="FontGray">2400个字符以内<br />
+            </span></td>
+        </tr>
+      </tbody>
+    </table>
+	</TD>
+  </TR>
+  <TR>
+    <TD style="BORDER-TOP: #ccc 1px dashed; HEIGHT: 50px; TEXT-ALIGN: center"><input type="submit" value="提交基本信息" name="Submit" /></TD>
+  </TR>
+  </TBODY>
+  </TABLE>
+  </td>
+  </tr>
+</table>
+</form>
+</body>
+</html>
