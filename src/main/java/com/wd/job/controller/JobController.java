@@ -61,7 +61,9 @@ public class JobController {
         //model.addAttribute("list",list);
         PageInfo<Jobs> page = new PageInfo<>(list);
         model.addAttribute("page",page);
+        System.out.println("nihao");
         return "jobs_list";
+
     }
 
     //去添加页面
