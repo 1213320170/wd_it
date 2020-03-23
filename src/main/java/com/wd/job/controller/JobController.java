@@ -61,6 +61,7 @@ public class JobController {
         //model.addAttribute("list",list);
         PageInfo<Jobs> page = new PageInfo<>(list);
         model.addAttribute("page",page);
+        System.out.println("123");
         return "jobs_list";
 
     }
