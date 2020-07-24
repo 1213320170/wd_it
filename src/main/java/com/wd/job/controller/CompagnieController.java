@@ -32,4 +32,7 @@ public class CompagnieController {
         return "redirect:job/all";
     }
 
+    public String add (){
+        return null;
+    }
 }
