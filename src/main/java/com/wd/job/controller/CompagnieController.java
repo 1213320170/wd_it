@@ -33,6 +33,7 @@ public class CompagnieController {
     }
 
     public String add (){
-        return null;
+        String s = "123";
+        return s;
     }
 }
